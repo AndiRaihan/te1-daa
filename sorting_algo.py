@@ -1,4 +1,4 @@
-def merge_sort(array:list[int]) -> list[int]:
+def merge_sort(array: list[int]) -> list[int]:
     """Sort a given list of int using merge sort algorithm
     Source: https://www.programiz.com/dsa/merge-sort
 
