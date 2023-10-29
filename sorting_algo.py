@@ -64,7 +64,7 @@ def two_pivot_block_partitioning(array: list[int], start: int, end: int) -> tupl
     
     block = [None] * BLOCK_SIZE
     
-    i, j, k = 1, 1, 1
+    i, j, k = start + 1, start + 1, start + 1
     nump, numq = 0, 0
     
     while k < end:
@@ -84,6 +84,13 @@ def two_pivot_block_partitioning(array: list[int], start: int, end: int) -> tupl
         j += numq
         nump, numq = 0, 0
     
-    array[i-1], array[0] = array[0], array[i-1]
+    array[i-1], array[start] = array[start], array[i-1]
     array[j], array[end] = array[end], array[j]
     return (i-1, j)
+
+def two_pivot_block_quicksort(array: list[int], start: int, end: int) -> None:
+    if start <= end:
+        pivots = two_pivot_block_partitioning(array, start, end)
+        two_pivot_block_quicksort(array, start, pivots[0] - 1)
+        two_pivot_block_quicksort(array, pivots[0] + 1, pivots[1] - 1)
+        two_pivot_block_quicksort(array, pivots[1] + 1, end)
