@@ -60,7 +60,9 @@ if __name__ == '__main__':
                 running_time_results["merge sort" + ": " +
                                         file_name] = profile_running_time(data, file_name, merge_sort)
                 f.write(f"merge sort: {file_name} = {running_time_results['merge sort' + ': ' + file_name]} ms")
+                print(f"merge sort: {file_name} = {running_time_results['merge sort' + ': ' + file_name]} ms")
             f.write("=" * 100)
+            print("=" * 100 + f"iter {i}" + "=" * 100)
             
             data = load_dataset()
             for file_name in data.keys():
@@ -68,19 +70,25 @@ if __name__ == '__main__':
                 memory_allocation_results["merge sort" + ": " +
                                         file_name] = res
                 f.write(f"merge sort: {file_name} = {res}")
+                print(f"merge sort: {file_name} = {res}")
             f.write("=" * 100)
+            print("=" * 100 + f"iter {i}" + "=" * 100)
             
             data = load_dataset()
             for file_name in data.keys():
                 running_time_results["two pivot block quick sort" + ": " +
                                         file_name] = profile_running_time(data, file_name, two_pivot_block_quicksort)
                 f.write(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
+                print(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
             f.write("=" * 100)
+            print("=" * 100 + f"iter {i}" + "=" * 100)
             
             data = load_dataset()
             for file_name in data.keys():
                 res = profile_memory(data, file_name, two_pivot_block_quicksort)
                 memory_allocation_results["two pivot block quick sort: " + file_name] = res
                 f.write(f"two pivot block quick sort: {file_name} = {res}")
+                print(f"two pivot block quick sort: {file_name} = {res}")
             f.write("=" * 100)
+            print("=" * 100 + f"iter {i}" + "=" * 100)
     
