@@ -73,6 +73,7 @@ if __name__ == '__main__':
         running_time_results["two pivot block quick sort" + ": " +
                                  file_name] = profile_running_time(data, file_name, two_pivot_block_quicksort)
         print(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
+    print("=" * 100)
     
     data = load_dataset()
     for file_name in data.keys():
