@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 f.write(f"merge sort: {file_name} = {running_time_results['merge sort' + ': ' + file_name]} ms")
                 print(f"merge sort: {file_name} = {running_time_results['merge sort' + ': ' + file_name]} ms")
             f.write("=" * 100)
-            print("=" * 100 + f"iter {i}" + "=" * 100)
+            print("=" * 60 + f"iter {i}" + "=" * 60)
             
             data = load_dataset()
             for file_name in data.keys():
@@ -72,7 +72,7 @@ if __name__ == '__main__':
                 f.write(f"merge sort: {file_name} = {res}")
                 print(f"merge sort: {file_name} = {res}")
             f.write("=" * 100)
-            print("=" * 100 + f"iter {i}" + "=" * 100)
+            print("=" * 60 + f"iter {i}" + "=" * 60)
             
             data = load_dataset()
             for file_name in data.keys():
@@ -81,7 +81,7 @@ if __name__ == '__main__':
                 f.write(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
                 print(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
             f.write("=" * 100)
-            print("=" * 100 + f"iter {i}" + "=" * 100)
+            print("=" * 60 + f"iter {i}" + "=" * 60)
             
             data = load_dataset()
             for file_name in data.keys():
@@ -90,5 +90,5 @@ if __name__ == '__main__':
                 f.write(f"two pivot block quick sort: {file_name} = {res}")
                 print(f"two pivot block quick sort: {file_name} = {res}")
             f.write("=" * 100)
-            print("=" * 100 + f"iter {i}" + "=" * 100)
+            print("=" * 60 + f"iter {i}" + "=" * 60)
     
