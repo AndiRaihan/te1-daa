@@ -3,11 +3,11 @@ import random
 
 
 def generate_data(size: int) -> list[int]:
-    """generate list of random numbers ranging from 0 to 10.000
+    """generate list of random numbers ranging from 0 to 2**16
     Args:
         size (int): how many number should be in the array 
     """
-    return [random.randint(0, 10000) for _ in range(size)]
+    return [random.randint(0, 2**16) for _ in range(size)]
 
 
 if __name__ == "__main__":

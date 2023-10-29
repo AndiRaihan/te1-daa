@@ -1,4 +1,7 @@
-def merge_sort(array: list[int]) -> list[int]:
+import numpy as np
+
+
+def merge_sort(array: list[int], *args, **kwargs) -> list[int]:
     """Sort a given list of int using merge sort algorithm
     Source: https://www.programiz.com/dsa/merge-sort
 
@@ -41,18 +44,18 @@ def merge_sort(array: list[int]) -> list[int]:
             j += 1
             k += 1
 
-def two_pivot_block_partitioning(array: list[int], start: int, end: int) -> tuple[int, int]:
+def two_pivot_block_partitioning(array: list[int], start: int, end: int, block_size: int) -> tuple[int, int]:
     """Returns two pivot index that divide the array into three parts using block partitioning method
 
     Args:
         array (list[int]): Array that will be partitioned
         start (int): The start of the partition
         end (int): The end of the partition
+        block_size (int): The size of the block
 
     Returns:
         tuple[int, int]: A tuple of the first and second pivot index
     """
-    BLOCK_SIZE = 1024
     if (end <= start):
         return (start, start)
     pivot1 = array[start]
@@ -62,13 +65,13 @@ def two_pivot_block_partitioning(array: list[int], start: int, end: int) -> tupl
         array[start], array[end] = array[end], array[start]
         pivot1, pivot2 = pivot2, pivot1
     
-    block = [None] * BLOCK_SIZE
+    block = [None] * block_size
     
     i, j, k = start + 1, start + 1, start + 1
     nump, numq = 0, 0
     
     while k < end:
-        t = min(BLOCK_SIZE, end - k)
+        t = min(block_size, end - k)
         for c in range(t):
             block[numq] = c
             numq = numq + (pivot2 >= array[k + c])
@@ -89,8 +92,18 @@ def two_pivot_block_partitioning(array: list[int], start: int, end: int) -> tupl
     return (i-1, j)
 
 def two_pivot_block_quicksort(array: list[int], start: int, end: int) -> None:
-    if start <= end:
-        pivots = two_pivot_block_partitioning(array, start, end)
-        two_pivot_block_quicksort(array, start, pivots[0] - 1)
-        two_pivot_block_quicksort(array, pivots[0] + 1, pivots[1] - 1)
-        two_pivot_block_quicksort(array, pivots[1] + 1, end)
+    if (len(array) == 0):
+        return array
+    
+    # Berdasarkan paper, untuk data ukuran 2^26 block size yang optimal adalah 2^10. Saya simpulkan
+    # bahwa untuk data ukuran 2^n, block size yang optimal adalah 2^(floor(n/3) + 2)
+    block_size = np.log2(len(array))
+    block_size = int(2 ** (np.floor(block_size) // 3 + 2))
+    
+    # Dibuat iteratif karena untuk data yang terlalu besar, akan terjadi stack overflow
+    stack = [(start, end)]
+    while stack:
+        start, end = stack.pop()
+        if start < end:
+            pivots = two_pivot_block_partitioning(array, start, end, block_size)
+            stack.extend([(start, pivots[0] - 1), (pivots[0] + 1, pivots[1] - 1), (pivots[1] + 1, end)])

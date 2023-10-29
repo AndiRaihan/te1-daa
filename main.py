@@ -1,5 +1,6 @@
+import time
 import tracemalloc
-from sorting_algo import merge_sort
+from sorting_algo import merge_sort, two_pivot_block_quicksort
 
 
 def load_dataset():
@@ -30,7 +31,7 @@ def load_dataset():
 
 
 def profile_memory(data: dict, file_name: str, sorting_function):
-    sorting_function(data[file_name])
+    sorting_function(data[file_name], start = 0, end = len(data[file_name]) - 1)
 
     current, peak = tracemalloc.get_traced_memory()
     tracemalloc.reset_peak()
@@ -39,15 +40,44 @@ def profile_memory(data: dict, file_name: str, sorting_function):
 
     return "current memory usage: " + str(current) + " KB, peak memory usage: " + str(peak) + " KB, " + "peak - current = " + str(peak - current) + " KB"
 
+def profile_running_time(data: dict, file_name: str, sorting_function):
+    start_time = time.time()
+    sorting_function(data[file_name], start = 0, end = len(data[file_name]) - 1)
+    end_time = time.time()
+    return (end_time - start_time) * 1000
+
+
 
 if __name__ == '__main__':
     data = load_dataset()
-
-    memory_allocation_result = {}
+    memory_allocation_results = {}
+    running_time_results = {}
     tracemalloc.start()
+    
     for file_name in data.keys():
-        memory_allocation_result["merge sort" + ": " +
-                                 file_name] = profile_memory(data, file_name, merge_sort)
-
-    for key, val in memory_allocation_result.items():
-        print(key + "= ", val)
+        running_time_results["merge sort" + ": " +
+                                 file_name] = profile_running_time(data, file_name, merge_sort)
+        print(f"merge sort: {file_name} = {running_time_results['merge sort' + ': ' + file_name]} ms")
+    print("=" * 100)
+    
+    data = load_dataset()
+    for file_name in data.keys():
+        res = profile_memory(data, file_name, merge_sort)
+        memory_allocation_results["merge sort" + ": " +
+                                 file_name] = res
+        print(f"merge sort: {file_name} = {res}")
+    print("=" * 100)
+    
+    data = load_dataset()
+    for file_name in data.keys():
+        running_time_results["two pivot block quick sort" + ": " +
+                                 file_name] = profile_running_time(data, file_name, two_pivot_block_quicksort)
+        print(f"two pivot block quick sort: {file_name} = {running_time_results['two pivot block quick sort' + ': ' + file_name]} ms")
+    
+    data = load_dataset()
+    for file_name in data.keys():
+        res = profile_memory(data, file_name, two_pivot_block_quicksort)
+        memory_allocation_results["two pivot block quick sort: " + file_name] = res
+        print(f"two pivot block quick sort: {file_name} = {res}")
+    print("=" * 100)
+    
