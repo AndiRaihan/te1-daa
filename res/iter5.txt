@@ -1,0 +1,40 @@
+merge sort: kecil_random = 0.1564 ms
+merge sort: kecil_sorted_asc = 0.0735 ms
+merge sort: kecil_sorted_desc = 0.0386 ms
+merge sort: sedang_random = 0.7747 ms
+merge sort: sedang_sorted_asc = 1.1247 ms
+merge sort: sedang_sorted_desc = 1.8286 ms
+merge sort: besar_random = 6.3556 ms
+merge sort: besar_sorted_asc = 6.6639 ms
+merge sort: besar_sorted_desc = 8.5389 ms
+====================================================================================================
+merge sort: kecil_random = current memory usage: 3583 KB
+merge sort: kecil_sorted_asc = current memory usage: 2875 KB
+merge sort: kecil_sorted_desc = current memory usage: 2718 KB
+merge sort: sedang_random = current memory usage: 3364 KB
+merge sort: sedang_sorted_asc = current memory usage: 3364 KB
+merge sort: sedang_sorted_desc = current memory usage: 3364 KB
+merge sort: besar_random = current memory usage: 9021 KB
+merge sort: besar_sorted_asc = current memory usage: 8999 KB
+merge sort: besar_sorted_desc = current memory usage: 9128 KB
+====================================================================================================
+two pivot block quick sort: kecil_random = 0.0618 ms
+two pivot block quick sort: kecil_sorted_asc = 0.2292 ms
+two pivot block quick sort: kecil_sorted_desc = 0.223 ms
+two pivot block quick sort: sedang_random = 1.2567 ms
+two pivot block quick sort: sedang_sorted_asc = 51.4495 ms
+two pivot block quick sort: sedang_sorted_desc = 52.281 ms
+two pivot block quick sort: besar_random = 9.4093 ms
+two pivot block quick sort: besar_sorted_asc = 3432.1239 ms
+two pivot block quick sort: besar_sorted_desc = 3485.7898 ms
+====================================================================================================
+two pivot block quick sort: kecil_random = current memory usage: 3583 KB
+two pivot block quick sort: kecil_sorted_asc = current memory usage: 2955 KB
+two pivot block quick sort: kecil_sorted_desc = current memory usage: 2719 KB
+two pivot block quick sort: sedang_random = current memory usage: 4011 KB
+two pivot block quick sort: sedang_sorted_asc = current memory usage: 4327 KB
+two pivot block quick sort: sedang_sorted_desc = current memory usage: 4327 KB
+two pivot block quick sort: besar_random = current memory usage: 8377 KB
+two pivot block quick sort: besar_sorted_asc = current memory usage: 6242 KB
+two pivot block quick sort: besar_sorted_desc = current memory usage: 20267 KB
+====================================================================================================

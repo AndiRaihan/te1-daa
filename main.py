@@ -54,7 +54,7 @@ if __name__ == '__main__':
     running_time_results = {}
     tracemalloc.start()
     
-    for i in range(5):
+    for i in range(1,6):
         with open(f'res/iter{i}.txt', 'w') as f:
             for file_name in data.keys():
                 running_time_results["merge sort" + ": " +

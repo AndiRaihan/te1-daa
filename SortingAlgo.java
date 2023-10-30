@@ -1,6 +1,9 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SortingAlgo {
+
     public static void mergeSort(int[] array) {
         if (array.length > 1) {
             int mid = array.length / 2;
