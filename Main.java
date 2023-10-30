@@ -93,11 +93,14 @@ public class Main {
     private static String profileMemory(Map<String, int[]> data,
                                         String fileName, String functionType) {
         Runtime runtime = Runtime.getRuntime();
-        runtime.gc();
+        for (int i = 0; i < 3; i++) {
+            runtime.gc();
+        }
+        long initialMemory = runtime.totalMemory() - runtime.freeMemory();
         runSorting(data, fileName, functionType);
         long currentMemory = runtime.totalMemory() - runtime.freeMemory();
 
-        long current = currentMemory / 1024;
+        long current = (currentMemory - initialMemory) / 1024;
 
         return "current memory usage: " + current + " KB";
     }
