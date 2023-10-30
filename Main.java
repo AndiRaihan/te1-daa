@@ -93,7 +93,7 @@ public class Main {
     private static String profileMemory(Map<String, int[]> data,
                                         String fileName, String functionType) {
         Runtime runtime = Runtime.getRuntime();
-        System.gc();
+        runtime.gc();
         runSorting(data, fileName, functionType);
         long currentMemory = runtime.totalMemory() - runtime.freeMemory();
 
