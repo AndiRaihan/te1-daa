@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +12,7 @@ public class Main {
             "sedang_random", "sedang_sorted_asc", "sedang_sorted_desc",
             "besar_random", "besar_sorted_asc", "besar_sorted_desc"
     };
+
     public static void main(String[] args) {
         Map<String, int[]> data = loadDataset();
         Map<String, String> memoryAllocationResults = new HashMap<>();

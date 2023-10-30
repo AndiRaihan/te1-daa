@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SortingAlgo {
 
@@ -41,7 +39,7 @@ public class SortingAlgo {
 
     public static int[] twoPivotBlockPartitioning(int[] array, int start, int end, int blockSize) {
         if (end <= start) {
-            return new int[] { start, start };
+            return new int[]{start, start};
         }
 
         int pivot1 = array[start];
@@ -102,7 +100,7 @@ public class SortingAlgo {
         array[j] = array[end];
         array[end] = temp;
 
-        return new int[] { i - 1, j };
+        return new int[]{i - 1, j};
     }
 
     public static void twoPivotBlockQuickSort(int[] array, int start, int end) {
@@ -114,7 +112,7 @@ public class SortingAlgo {
         int[][] stack = new int[array.length][2];
         int top = -1;
 
-        stack[++top] = new int[] { start, end };
+        stack[++top] = new int[]{start, end};
 
         while (top >= 0) {
             int[] range = stack[top--];
@@ -123,18 +121,19 @@ public class SortingAlgo {
 
             if (start < end) {
                 int[] pivots = twoPivotBlockPartitioning(array, start, end, blockSize);
-                stack[++top] = new int[] { start, pivots[0] - 1 };
-                stack[++top] = new int[] { pivots[0] + 1, pivots[1] - 1 };
-                stack[++top] = new int[] { pivots[1] + 1, end };
+                stack[++top] = new int[]{start, pivots[0] - 1};
+                stack[++top] = new int[]{pivots[0] + 1, pivots[1] - 1};
+                stack[++top] = new int[]{pivots[1] + 1, end};
             }
         }
     }
+
     public static void main(String[] args) {
-        int[] array = { 5, 7, 3, 1, 6, 9 };
+        int[] array = {5, 7, 3, 1, 6, 9};
         twoPivotBlockQuickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
 
-        array = new int[] { 1, 2, 3, 4, 5 };
+        array = new int[]{1, 2, 3, 4, 5};
         mergeSort(array);
         System.out.println(Arrays.toString(array));
     }
