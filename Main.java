@@ -31,10 +31,10 @@ public class Main {
 
                     data = loadDataset();
                     for (String fileName : fileNames) {
-                        String res = profileMemory(data, fileName, "merge sort");
-                        writer.write("merge sort: " + fileName + " = " + res + "\n");
+                        double res = profileMemory(data, fileName, "merge sort");
+                        writer.write("merge sort: " + fileName + " = " + "current memory usage: " + res + " KB" + "\n");
                         writerPureData.write(res + "\n");
-                        System.out.println("merge sort: " + fileName + " = " + res);
+                        System.out.println("merge sort: " + fileName + " = " + "current memory usage: " + res + " KB");
                     }
                     writer.write("=".repeat(100) + "\n");
                     writerPureData.write("=".repeat(100) + "\n");
@@ -53,10 +53,10 @@ public class Main {
 
                     data = loadDataset();
                     for (String fileName : fileNames) {
-                        String res = profileMemory(data, fileName, "two pivot block quick sort");
-                        writer.write("two pivot block quick sort: " + fileName + " = " + res + "\n");
+                        double res = profileMemory(data, fileName, "two pivot block quick sort");
+                        writer.write("two pivot block quick sort: " + fileName + " = " + "current memory usage: " + res + " KB" + "\n");
                         writerPureData.write(res + "\n");
-                        System.out.println("two pivot block quick sort: " + fileName + " = " + res);
+                        System.out.println("two pivot block quick sort: " + fileName + " = " + "current memory usage: " + res + " KB");
                     }
                     writer.write("=".repeat(100) + "\n");
                     writerPureData.write("=".repeat(100) + "\n");
@@ -98,7 +98,7 @@ public class Main {
         return newArray;
     }
 
-    private static String profileMemory(Map<String, int[]> data,
+    private static double profileMemory(Map<String, int[]> data,
                                         String fileName, String functionType) {
         Runtime runtime = Runtime.getRuntime();
         for (int i = 0; i < 3; i++) {
@@ -108,9 +108,7 @@ public class Main {
         runSorting(data, fileName, functionType);
         long currentMemory = runtime.totalMemory() - runtime.freeMemory();
 
-        double current = (double) (currentMemory - initialMemory) / 1024;
-
-        return "current memory usage: " + current + " KB";
+        return (double) (currentMemory - initialMemory) / 1024;
     }
 
     private static void runSorting(Map<String, int[]> data, String fileName, String functionType) {
