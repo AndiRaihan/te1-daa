@@ -1,0 +1,40 @@
+0.0199
+0.0179
+0.0147
+0.3869
+0.3437
+0.6855
+2.8753
+3.0113
+4.1834
+====================================================================================================
+current memory usage: 160.328125 KB
+current memory usage: 160.328125 KB
+current memory usage: 160.328125 KB
+current memory usage: 814.765625 KB
+current memory usage: 814.765625 KB
+current memory usage: 814.765625 KB
+current memory usage: 6452.875 KB
+current memory usage: 6568.6484375 KB
+current memory usage: 6495.046875 KB
+====================================================================================================
+0.0473
+0.1618
+0.1613
+0.68
+37.1091
+37.751
+6.2414
+2442.1894
+2355.5963
+====================================================================================================
+current memory usage: 161.640625 KB
+current memory usage: 161.640625 KB
+current memory usage: 161.640625 KB
+current memory usage: 1470.28125 KB
+current memory usage: 1790.0625 KB
+current memory usage: 1790.0625 KB
+current memory usage: 3857.546875 KB
+current memory usage: 15856.9375 KB
+current memory usage: 4089.6171875 KB
+====================================================================================================
